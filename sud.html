@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('SUD',{
+        category: 'function',
+        color: '#47afeb',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "SUD.png",
+        label: function() {
+            return this.name||"SUD";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="lower-case">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="SUD">
+    <p>A node to read from a Seneye USB device</p>
+</script>
