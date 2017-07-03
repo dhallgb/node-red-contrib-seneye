@@ -1,0 +1,15 @@
+{
+    "name"         : "node-red-contrib-seneye",
+    "version"      : "0.0.1",
+    "description"  : "NodeRED node to read a Seneye SUD",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dhallgb/node-red-contrib-seneye"
+	},
+    "keywords": [ "node-red", "seneye" ],
+    "node-red"     : {
+        "nodes": {
+            "sud": "sud.js"
+        }
+    }
+}
