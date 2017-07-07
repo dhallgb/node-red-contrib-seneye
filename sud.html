@@ -8,7 +8,7 @@
         inputs:1,
         outputs:1,
         icon: "SUD.png",
-        align: "right",
+        align: "left",
         label: function() {
             return this.name||"SUD";
         },
@@ -18,9 +18,14 @@
     });
 </script>
 
+
 <script type="text/x-red" data-template-name="SUD">
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <label for="node-input-device"><i class="icon-tag"></i> Device</label>
+        <input type="text" id="node-config-input-device" placeholder="Device">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-bookmark"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
@@ -28,3 +33,4 @@
 <script type="text/x-red" data-help-name="SUD">
     <p>A node to read from a Seneye USB device. Supply your device id which can be found from the Seneye Connect application, otherwise the first device found will be read.</p>
 </script>
+
