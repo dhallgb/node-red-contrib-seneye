@@ -8,8 +8,12 @@
         inputs:1,
         outputs:1,
         icon: "SUD.png",
+        align: "right",
         label: function() {
             return this.name||"SUD";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
         }
     });
 </script>
@@ -22,5 +26,5 @@
 </script>
 
 <script type="text/x-red" data-help-name="SUD">
-    <p>A node to read from a Seneye USB device</p>
+    <p>A node to read from a Seneye USB device. Supply your device id (from the Seneye Connect application), otherwise the first device found will be read.</p>
 </script>
