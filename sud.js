@@ -3,7 +3,9 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         node.on('input', function(msg) {
-
+//
+// 
+//
     dev = usb.core.find(idVendor=9463, idProduct=8708)
     if dev.is_kernel_driver_active(interface):
         dev.detach_kernel_driver(interface)
