@@ -1,34 +1,111 @@
-<script type="text/x-red" data-template-name="SUD">
+<script type="text/javascript">
+  RED.nodes.registerType("SUDConfig",{
+    category:'config',
+    color: '#47afeb',
+    defaults: {
+      vendor: {value: '', required: true},
+      product: {value: '', required: true},
+      serial: {value: '', required: true},
+      name: {value: ''}
+    },
+    label: function(){
+      return this.name || 'SUDConfig';
+    }
+  });
+</script>
+
+
+<script type="text/x-red" data-template-name="SUDConfig">
+
+  <div class="form-row">
+    <label for="node-config-input-vendor"><i class="icon-tag"></i>Vendor </label>
+    <input type="text" id="node-config-input-vendor" placeholder="9463">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-product"><i class="icon-tag"></i>Product </label>
+    <input type="text" id="node-config-input-product" placeholder="8708">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-serial"><i class="icon-tag"></i>Serial </label>
+    <input type="text" id="node-config-input-serial" placeholder="">
+  </div>
+
     <div class="form-row">
-        <label for="node-input-device"><i class="icon-tag"></i> Device</label>
-        <input type="text" id="node-input-device" placeholder="Device">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-config-input-name" placeholder="Seneye USB Device">
+  </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="SUDConfig">
+  <p>Details of the Seneye USB device</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('writeSUD',{
+        category: 'function',
+        color: '#47afeb',
+        defaults: {
+            name: {value:""}            
+        },
+        inputs:1,
+        outputs:1,
+        icon: "SUD.png",
+        align: 'right',
+        label: function() {
+            return this.name||"writeSUD";
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="writeSUD">
+      <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="SUD">
-    <p>A node to read from a Seneye USB device. Supply your device id which can be found from the Seneye Connect application, otherwise the first device found will be read.</p>
+<script type="text/x-red" data-help-name="writeSUD">
+    <p>Write to the SUD from a selection of valid messages.</p>
 </script>
 
+
 <script type="text/javascript">
-    RED.nodes.registerType('SUD',{
+    RED.nodes.registerType('readSUD',{
         category: 'function',
         color: '#47afeb',
         defaults: {
+            connection: {type: 'SUDConfig', required: true},
             name: {value:""}
         },
         inputs:1,
         outputs:1,
         icon: "SUD.png",
-        align: "left",
+        align: 'left',
         label: function() {
-            return this.name||"SUD";
-        },
-        labelStyle: function() {
-            return this.name?"node_label_italic":"";
+            return this.name ||"readSUD";
         }
     });
 </script>
+
+
+<script type="text/x-red" data-template-name="readSUD">
+
+    <div class="form-row">
+    <label for="node-input-connection"><i class="fa fa-bookmark"></i>Connection</label>
+    <input type="text" id="node-input-connection" placeholder="">
+  </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="readSUD">
+    <p>A node to read from a Seneye USB device.</p>
+</script>
+
