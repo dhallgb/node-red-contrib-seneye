@@ -60,7 +60,7 @@ module.exports = function(RED) {
     // return view;
   // }
 
-  function writeSUDNode(config) {
+  function writeSUDnode(config) {
 	RED.nodes.createNode(this, config);
     var node = this;
     this.on('input', function(msg) {
@@ -70,8 +70,8 @@ module.exports = function(RED) {
     });
   }
 
-  RED.nodes.registerType("readSUD", readSUDNode);
-  RED.nodes.registerType("writeSUD", writeSUDNode);
+  RED.nodes.registerType("readSUD", readSUDnode);
+  RED.nodes.registerType("writeSUD", writeSUDnode);
   RED.nodes.registerType('SUDConfig', SUDConfigNode);
 }
 /*

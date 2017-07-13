@@ -10,7 +10,6 @@
     "url": "https://github.com/dhallgb/node-red-contrib-seneye"
   },
   "keywords": [
-    "node-red",
     "seneye"
   ],
   "node-red": {

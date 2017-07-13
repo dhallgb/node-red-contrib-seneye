@@ -5,7 +5,7 @@
     defaults: {
       vendor: {value: '', required: true},
       product: {value: '', required: true},
-      serial: {value: '', required: true},
+      serial: {value: ''},
       name: {value: ''}
     },
     label: function(){
@@ -13,7 +13,6 @@
     }
   });
 </script>
-
 
 <script type="text/x-red" data-template-name="SUDConfig">
 
@@ -40,7 +39,7 @@
 </script>
 
 <script type="text/x-red" data-help-name="SUDConfig">
-  <p>Details of the Seneye USB device</p>
+  <p>Details of the Seneye USB device, usually the defaults are sufficient. If there are multiple devices a serial number could be provided, but is currently not used.</p>
 </script>
 
 <script type="text/javascript">
@@ -62,7 +61,16 @@
 
 
 <script type="text/x-red" data-template-name="writeSUD">
-      <div class="form-row">
+    <div class="form-row">
+        <label for="node-input-command"><i class="icon-tag"></i>Name</label>
+        <select id="node-input-command" style='width:70%'>
+            <option value="HELLOSUD">Start</option>
+            <option value="READING">Measurements</option>
+            <option value="LED">Control LEDs</option>
+            <option value="BYESUD">End</option>
+        </select>
+    </div>
+    <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
@@ -71,7 +79,6 @@
 <script type="text/x-red" data-help-name="writeSUD">
     <p>Write to the SUD from a selection of valid messages.</p>
 </script>
-
 
 <script type="text/javascript">
     RED.nodes.registerType('readSUD',{
@@ -91,13 +98,11 @@
     });
 </script>
 
-
 <script type="text/x-red" data-template-name="readSUD">
-
     <div class="form-row">
-    <label for="node-input-connection"><i class="fa fa-bookmark"></i>Connection</label>
-    <input type="text" id="node-input-connection" placeholder="">
-  </div>
+        <label for="node-input-connection"><i class="fa fa-bookmark"></i>Connection</label>
+        <input type="text" id="node-input-connection" placeholder="">
+    </div>
 
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i>Name</label>
@@ -108,4 +113,3 @@
 <script type="text/x-red" data-help-name="readSUD">
     <p>A node to read from a Seneye USB device.</p>
 </script>
-
